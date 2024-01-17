@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Web App</title>
+</head>
+<body>
+  <h1>Dynamic Web App</h1>
+  <div id="fileContent"></div>
+
+  <script>
+    async function fetchData() {
+      const response = await fetch('/api/getFileContent');
+      const data = await response.json();
+      document.getElementById('fileContent').innerText = data.content;
+    }
+
+    fetchData();
+  </script>
+</body>
+</html>
